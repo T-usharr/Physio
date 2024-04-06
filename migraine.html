@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Migraine Assessment</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Custom CSS for styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .navbar {
+            background-color: #0a4275;
+            color: #fff;
+        }
+
+        .navbar-brand {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .navbar-nav .nav-link {
+            color: #fff;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #ccc;
+        }
+
+        /* Custom CSS for card layout */
+        .recommendation {
+            margin-bottom: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .recommendation img {
+            width: 80px;
+            height: 60px;
+            object-fit: cover; /* Ensure the image covers the entire area */
+        }
+
+        .recommendation p {
+            padding: 15px;
+            margin: 0;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg mb-5">
+        <div class="container">
+            <a class="navbar-brand" href="#">Physio Healthcare App</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="btn btn-primary ml-auto" href="/Non_critical_section.html">Go Back</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Migraine Assessment</h1>
+        <form id="migraineForm">
+            <div class="form-group">
+                <label>1. Have you been diagnosed with migraine headaches in the past?</label><br>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="diagnosedYes" name="diagnosed" value="1">
+                    <label class="form-check-label" for="diagnosedYes">Yes</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="diagnosedNo" name="diagnosed" value="0" checked>
+                    <label class="form-check-label" for="diagnosedNo">No</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>2. Do you have any other chronic health conditions?</label><br>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="chronicYes" name="chronic" value="1">
+                    <label class="form-check-label" for="chronicYes">Yes</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="chronicNo" name="chronic" value="0" checked>
+                    <label class="form-check-label" for="chronicNo">No</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>3. Do you currently have any of the following symptoms? (Check all that apply)</label><br>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="headachePain" value="1">
+                    <label class="form-check-label" for="headachePain">Moderate to severe headache pain (typically on one side of the head)</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="throbbingPain" value="1">
+                    <label class="form-check-label" for="throbbingPain">Throbbing or pulsating head pain</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="lightSensitivity" value="1">
+                    <label class="form-check-label" for="lightSensitivity">Sensitivity to light (photophobia)</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="soundSensitivity" value="1">
+                    <label class="form-check-label" for="soundSensitivity">Sensitivity to sound (phonophobia)</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="speechDifficulty" value="2">
+                    <label class="form-check-label" for="speechDifficulty">Difficulty speaking or understanding speech</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>4. How often do you experience migraine headaches?</label><br>
+                <select class="form-control" id="migraineFrequency">
+                    <option value="1">Daily</option>
+                    <option value="0.75">Weekly</option>
+                    <option value="0.5">Monthly</option>
+                    <option value="0.25">Occasionally</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>5. How long do your migraine episodes typically last?</label><br>
+                <select class="form-control" id="migraineDuration">
+                    <option value="0.25">Less than 4 hours</option>
+                    <option value="0.5">4-24 hours</option>
+                    <option value="2">More than 24 hours</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>6. Where might you typically feel pain during a migraine headache?</label><br>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="painBackOfHead" name="painLocation" value="0.5">
+                    <label class="form-check-label" for="painBackOfHead">Back of the head</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="painBaseOfSkull" name="painLocation" value="2">
+                    <label class="form-check-label" for="painBaseOfSkull">Base of the skull</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="painAroundEyes" name="painLocation" value="0.5">
+                    <label class="form-check-label" for="painAroundEyes">Around the eyes</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="painNone" name="painLocation" value="0" checked>
+                    <label class="form-check-label" for="painNone">None of the above</label>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <div id="divider"></div> <!-- Divider -->
+        <div id="recommendations">
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('migraineForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            let totalValue = 0;
+
+            // Calculate total value
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+            checkboxes.forEach(function (checkbox) {
+                totalValue += parseInt(checkbox.value);
+            });
+
+            const selectValues = [
+                parseInt(document.getElementById('migraineFrequency').value),
+                parseInt(document.getElementById('migraineDuration').value),
+                parseFloat(document.querySelector('input[name="painLocation"]:checked').value)
+            ];
+
+            selectValues.forEach(function (value) {
+                totalValue += value;
+            });
+
+            // Display general recommendations based on total value
+            const recommendationsDiv = document.getElementById('recommendations');
+            recommendationsDiv.style.display = 'block';
+            recommendationsDiv.innerHTML = '<h3>General Recommendations:</h3>';
+            const row = document.createElement('div');
+            row.classList.add('row');
+            recommendationsDiv.appendChild(row);
+
+            if (totalValue < 4) {
+                appendRecommendation(row, "Identify and avoid triggers such as certain foods, stress, lack of sleep, or hormonal changes.", 'https://source.unsplash.com/80x60/?triggers');
+                appendRecommendation(row, "Use over-the-counter pain relievers, such as ibuprofen or acetaminophen, at the onset of symptoms.", 'https://source.unsplash.com/80x60/?pain-reliever');
+                appendRecommendation(row, "Apply cold packs to the forehead or temples to alleviate pain.", 'https://source.unsplash.com/80x60/?cold-pack');
+                appendRecommendation(row, "Practice relaxation techniques, such as deep breathing or meditation, to manage stress and tension.", 'https://source.unsplash.com/80x60/?relaxation');
+            }
+            else if(totalValue>=4 && totalValue<6.5){
+              appendRecommendation(row, "Mild migraines, future prone to consult a healthcare provider for prescription medications or preventive treatments.", 'https://source.unsplash.com/80x60/?medical');
+                appendRecommendation(row, "Identify and avoid triggers such as certain foods, stress, lack of sleep, or hormonal changes.", 'https://source.unsplash.com/80x60/?triggers');
+                appendRecommendation(row, "Use over-the-counter pain relievers, such as ibuprofen or acetaminophen, at the onset of symptoms.", 'https://source.unsplash.com/80x60/?pain-reliever');
+                appendRecommendation(row, "Apply cold packs to the forehead or temples to alleviate pain.", 'https://source.unsplash.com/80x60/?cold-pack');
+                appendRecommendation(row, "Practice relaxation techniques, such as deep breathing or meditation, to manage stress and tension.", 'https://source.unsplash.com/80x60/?relaxation');
+            }
+
+             else {
+                appendRecommendation(row, "If migraines are frequent or severe, consult a healthcare provider for prescription medications or preventive treatments.", 'https://source.unsplash.com/80x60/?medical');
+                appendRecommendation(row, "Identify and avoid triggers such as certain foods, stress, lack of sleep, or hormonal changes.", 'https://source.unsplash.com/80x60/?triggers');
+                appendRecommendation(row, "Use over-the-counter pain relievers, such as ibuprofen or acetaminophen, at the onset of symptoms.", 'https://source.unsplash.com/80x60/?pain-reliever');
+                appendRecommendation(row, "Apply cold packs to the forehead or temples to alleviate pain.", 'https://source.unsplash.com/80x60/?cold-pack');
+                appendRecommendation(row, "Practice relaxation techniques, such as deep breathing or meditation, to manage stress and tension.", 'https://source.unsplash.com/80x60/?relaxation');
+            }
+        });
+
+        function appendRecommendation(row, recommendation, imageUrl) {
+            const col = document.createElement('div');
+            col.classList.add('col-md-6');
+
+            const recommendationDiv = document.createElement('div');
+            recommendationDiv.classList.add('recommendation');
+
+            const image = document.createElement('img');
+            image.src = imageUrl;
+            image.alt = recommendation; // Add alt text for accessibility
+
+            const text = document.createElement('p');
+            text.textContent = recommendation;
+
+            recommendationDiv.appendChild(image);
+            recommendationDiv.appendChild(text);
+
+            col.appendChild(recommendationDiv);
+            row.appendChild(col);
+        }
+    </script>
+
+    <!-- Bootstrap JS, jQuery, and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

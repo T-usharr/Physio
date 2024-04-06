@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gastroenteritis Assessment</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Custom CSS for styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .navbar {
+            background-color: #0a4275;
+            color: #fff;
+        }
+
+        .navbar-brand {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .navbar-nav .nav-link {
+            color: #fff;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #ccc;
+        }
+
+        /* Custom CSS for card layout */
+        .recommendation {
+            margin-bottom: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .recommendation img {
+            width: 80px;
+            height: 60px;
+            object-fit: cover; /* Ensure the image covers the entire area */
+        }
+
+        .recommendation p {
+            padding: 15px;
+            margin: 0;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg mb-5">
+        <div class="container">
+            <a class="navbar-brand" href="#">Physio Healthcare App</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="btn btn-primary ml-auto" href="/Non_critical_section.html">Go Back</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Gastroenteritis Assessment</h1>
+        <div id="heading" style="display: none;">
+            <h2 style="text-align: center; color: #dc3545;">Highly Affected with Symptoms of Gastroenteritis. Seek Medical Attention</h2>
+        </div>
+        <form id="gastroenteritisForm">
+            <div class="form-group">
+                <label>1. Do you currently have any of the following symptoms? (Check all that apply)</label><br>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="nausea" value="1">
+                    <label class="form-check-label" for="nausea">Nausea</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="vomiting" value="1">
+                    <label class="form-check-label" for="vomiting">Vomiting</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="diarrhea" value="1">
+                    <label class="form-check-label" for="diarrhea">Diarrhea (watery or loose stools)</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="abdominalCramps" value="1">
+                    <label class="form-check-label" for="abdominalCramps">Abdominal cramps or pain</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="bloating" value="1">
+                    <label class="form-check-label" for="bloating">Bloating</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>2. How long have you been experiencing these symptoms?</label><br>
+                <select class="form-control" id="symptomDuration">
+                    <option value="1">Less than 1 day</option>
+                    <option value="2">1-3 days</option>
+                    <option value="3">4-7 days</option>
+                    <option value="4">More than 1 week</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>3. Have you recently eaten any food from outside or a new restaurant?</label><br>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="foodOutsideYes" name="foodOutside" value="1">
+                    <label class="form-check-label" for="foodOutsideYes">Yes</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="foodOutsideNo" name="foodOutside" value="0" checked>
+                    <label class="form-check-label" for="foodOutsideNo">No</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>4. Have you been diagnosed with gastroenteritis in the past?</label><br>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="diagnosedYes" name="diagnosed" value="1">
+                    <label class="form-check-label" for="diagnosedYes">Yes</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="diagnosedNo" name="diagnosed" value="0" checked>
+                    <label class="form-check-label" for="diagnosedNo">No</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>5. Do you have any chronic gastrointestinal conditions?</label><br>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="chronicYes" name="chronic" value="1">
+                    <label class="form-check-label" for="chronicYes">Yes</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="chronicNo" name="chronic" value="0" checked>
+                    <label class="form-check-label" for="chronicNo">No</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>6. Do you follow food safety guidelines (e.g., proper cooking, refrigeration, etc.)?</label><br>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="foodSafetyYes" name="foodSafety" value="1">
+                    <label class="form-check-label" for="foodSafetyYes">Yes</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="foodSafetyNo" name="foodSafety" value="0" checked>
+                    <label class="form-check-label" for="foodSafetyNo">No</label>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <div id="divider"></div> <!-- Divider -->
+        <div id="recommendations">
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('gastroenteritisForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            let totalValue = 0;
+
+            // Calculate total value
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+            checkboxes.forEach(function (checkbox) {
+                totalValue += parseInt(checkbox.value);
+            });
+
+            const selectValue = parseInt(document.getElementById('symptomDuration').value);
+            totalValue += selectValue;
+
+            const radioValues = document.querySelectorAll('input[type="radio"]:checked');
+            radioValues.forEach(function (radio) {
+                totalValue += parseInt(radio.value);
+            });
+
+            // Display general recommendations based on total value
+            const recommendationsDiv = document.getElementById('recommendations');
+            recommendationsDiv.style.display = 'block';
+            recommendationsDiv.innerHTML = '<h3>General Recommendations:</h3>';
+            const row = document.createElement('div');
+            row.classList.add('row');
+            recommendationsDiv.appendChild(row);
+
+            if (totalValue < 4) {
+                appendRecommendation(row, "Stay hydrated by drinking clear fluids like water, electrolyte solutions, or broths to replace lost fluids and electrolytes.", 'https://source.unsplash.com/80x60/?hydration');
+                appendRecommendation(row, "Eat bland, easily digestible foods like crackers, rice, bananas, or toast to ease nausea and vomiting.", 'https://source.unsplash.com/80x60/?food');
+                appendRecommendation(row, "Avoid spicy, fatty, or dairy-rich foods that can aggravate symptoms.", 'https://source.unsplash.com/80x60/?diet');
+                appendRecommendation(row, "Rest and avoid strenuous activities until symptoms improve.", 'https://source.unsplash.com/80x60/?rest');
+            } 
+            else if(totalValue>=4 && totalValue<=7.5){
+              appendRecommendation(row, "Stay hydrated by drinking clear fluids like water, electrolyte solutions, or broths to replace lost fluids and electrolytes.", 'https://source.unsplash.com/80x60/?hydration');
+                appendRecommendation(row, "Eat bland, easily digestible foods like crackers, rice, bananas, or toast to ease nausea and vomiting.", 'https://source.unsplash.com/80x60/?food');
+                appendRecommendation(row, "Avoid spicy, fatty, or dairy-rich foods that can aggravate symptoms.", 'https://source.unsplash.com/80x60/?diet');
+                appendRecommendation(row, "Rest and avoid strenuous activities until symptoms improve.", 'https://source.unsplash.com/80x60/?rest');
+            }             
+            else {
+              appendRecommendation(row, "If symptoms persist or worsen, seek medical attention to rule out complications like dehydration.", 'https://source.unsplash.com/80x60/?medical');
+             
+              appendRecommendation(row, "Stay hydrated by drinking clear fluids like water, electrolyte solutions, or broths to replace lost fluids and electrolytes.", 'https://source.unsplash.com/80x60/?hydration');
+                appendRecommendation(row, "Eat bland, easily digestible foods like crackers, rice, bananas, or toast to ease nausea and vomiting.", 'https://source.unsplash.com/80x60/?food');
+                appendRecommendation(row, "Avoid spicy, fatty, or dairy-rich foods that can aggravate symptoms.", 'https://source.unsplash.com/80x60/?diet');
+                appendRecommendation(row, "Rest and avoid strenuous activities until symptoms improve.", 'https://source.unsplash.com/80x60/?rest');
+        
+                document.getElementById('heading').style.display = 'block'; // Show the heading
+            }
+        });
+
+        function appendRecommendation(row, recommendation, imageUrl) {
+            const col = document.createElement('div');
+            col.classList.add('col-md-6');
+
+            const recommendationDiv = document.createElement('div');
+            recommendationDiv.classList.add('recommendation');
+
+            const image = document.createElement('img');
+            image.src = imageUrl;
+            image.alt = recommendation; // Add alt text for accessibility
+
+            const text = document.createElement('p');
+            text.textContent = recommendation;
+
+            recommendationDiv.appendChild(image);
+            recommendationDiv.appendChild(text);
+
+            col.appendChild(recommendationDiv);
+            row.appendChild(col);
+        }
+    </script>
+
+    <!-- Bootstrap JS, jQuery, and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

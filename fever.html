@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fever Assessment</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Custom CSS for styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .navbar {
+            background-color: #0a4275;
+            color: #fff;
+        }
+
+        .navbar-brand {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .navbar-nav .nav-link {
+            color: #fff;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #ccc;
+        }
+
+        /* Custom CSS for card layout */
+        .recommendation {
+            margin-bottom: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .recommendation img {
+            width: 80px;
+            height: 60px;
+            object-fit: cover;
+        }
+
+        .recommendation p {
+            padding: 15px;
+            margin: 0;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg mb-5">
+        <div class="container">
+            <a class="navbar-brand" href="#">Physio Healthcare App</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="btn btn-primary ml-auto" href="/Non_critical_section.html">Go Back</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Fever Assessment</h1>
+        <div id="heading" style="display: none;">
+            <h2 style="text-align: center; color: #dc3545;">Highly Affected with Symptoms of fever. Preferred Doctor
+                Attention</h2>
+        </div>
+        <form id="feverForm">
+            <div class="form-group">
+                <label>1. Do you currently have any of the following symptoms? (Check all that apply)</label><br>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="itchyEyes" value="1">
+                    <label class="form-check-label" for="itchyEyes">Itchy or watery eyes</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="itchyNoseThroat" value="1">
+                    <label class="form-check-label" for="itchyNoseThroat">Itchy nose or throat</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="lossOfSmell" value="1">
+                    <label class="form-check-label" for="lossOfSmell">Loss of smell</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="headache" value="1">
+                    <label class="form-check-label" for="headache">Headache</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="lossOfSmell2" value="1">
+                    <label class="form-check-label" for="lossOfSmell2">Loss of smell</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>2. How long have you been experiencing these symptoms?</label><br>
+                <select class="form-control" id="symptomDuration">
+                    <option value="0.5">Less than 1 day</option>
+                    <option value="0.5">1-3 days</option>
+                    <option value="0.75">4-7 days</option>
+                    <option value="1">More than 1 week</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>3. Have you noticed any specific triggers that worsen your symptoms? (Check all that
+                    apply)</label><br>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="pollen" value="1">
+                    <label class="form-check-label" for="pollen">Pollen</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="dustMites" value="1">
+                    <label class="form-check-label" for="dustMites">Dust mites</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="petDander" value="1">
+                    <label class="form-check-label" for="petDander">Pet dander</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="mold" value="1">
+                    <label class="form-check-label" for="mold">Mold</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="smoke" value="1">
+                    <label class="form-check-label" for="smoke">Smoke</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>4. Have you been diagnosed with allergic rhinitis (hay fever) in the past?</label><br>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="diagnosedYes" name="diagnosed" value="1">
+                    <label class="form-check-label" for="diagnosedYes">Yes</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="diagnosedNo" name="diagnosed" value="0" checked>
+                    <label class="form-check-label" for="diagnosedNo">No</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>5. Do you live in an urban or rural area?</label><br>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="urban" name="area" value="1">
+                    <label class="form-check-label" for="urban">Urban</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="rural" name="area" value="0" checked>
+                    <label class="form-check-label" for="rural">Rural</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>6. Do you have indoor plants or pets?</label><br>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="indoorYes" name="indoor" value="1">
+                    <label class="form-check-label" for="indoorYes">Yes</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="indoorNo" name="indoor" value="0" checked>
+                    <label class="form-check-label" for="indoorNo">No</label>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <div id="divider"></div> <!-- Divider -->
+        <div id="recommendations">
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('feverForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            let totalValue = 0;
+
+            // Calculate total value
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+            checkboxes.forEach(function (checkbox) {
+                totalValue += parseInt(checkbox.value);
+            });
+
+            const selectValue = parseFloat(document.getElementById('symptomDuration').value);
+            totalValue += selectValue;
+
+            const radioValues = document.querySelectorAll('input[type="radio"]:checked');
+            radioValues.forEach(function (radio) {
+                totalValue += parseInt(radio.value);
+            });
+
+            // Display general recommendations based on total value
+            const recommendationsDiv = document.getElementById('recommendations');
+            recommendationsDiv.style.display = 'block';
+            recommendationsDiv.innerHTML = '<h3>General Recommendations:</h3>';
+            const row = document.createElement('div');
+            row.classList.add('row');
+            recommendationsDiv.appendChild(row);
+
+            if (totalValue < 4) {
+                appendRecommendation(row, "Identify and avoid triggers such as pollen, dust, pet dander, or mold.", 'https://source.unsplash.com/80x60/?triggers');
+                appendRecommendation(row, "Use over-the-counter antihistamines or nasal corticosteroids to relieve symptoms like sneezing, itching, and congestion.", 'https://source.unsplash.com/80x60/?medications');
+                appendRecommendation(row, "Keep windows closed during high pollen seasons and use air purifiers indoors.", 'https://source.unsplash.com/80x60/?windows');
+                appendRecommendation(row, "Rinse nasal passages with saline solution to flush out allergens.", 'https://source.unsplash.com/80x60/?saline');
+            } else if (totalValue >= 4 && totalValue < 8) {
+                appendRecommendation(row, "Identify and avoid triggers such as pollen, dust, pet dander, or mold.", 'https://source.unsplash.com/80x60/?triggers');
+                appendRecommendation(row, "Use over-the-counter antihistamines or nasal corticosteroids to relieve symptoms like sneezing, itching, and congestion.", 'https://source.unsplash.com/80x60/?medications');
+                appendRecommendation(row, "Keep windows closed during high pollen seasons and use air purifiers indoors.", 'https://source.unsplash.com/80x60/?windows');
+                appendRecommendation(row, "Rinse nasal passages with saline solution to flush out allergens.", 'https://source.unsplash.com/80x60/?saline');
+                appendRecommendation(row, "Consider allergy shots (immunotherapy) for long-term management under the guidance of an allergist.", 'https://source.unsplash.com/80x60/?shots');
+            } else {
+                appendRecommendation(row, "High symptoms of fever. Preferred Doctor Attention", 'https://source.unsplash.com/80x60/?doctor');
+                appendRecommendation(row, "Identify and avoid triggers such as pollen, dust, pet dander, or mold.", 'https://source.unsplash.com/80x60/?triggers');
+                appendRecommendation(row, "Use over-the-counter antihistamines or nasal corticosteroids to relieve symptoms like sneezing, itching, and congestion.", 'https://source.unsplash.com/80x60/?medications');
+                appendRecommendation(row, "Keep windows closed during high pollen seasons and use air purifiers indoors.", 'https://source.unsplash.com/80x60/?windows');
+                appendRecommendation(row, "Rinse nasal passages with saline solution to flush out allergens.", 'https://source.unsplash.com/80x60/?saline');
+                appendRecommendation(row, "Consider allergy shots (immunotherapy) for long-term management under the guidance of an allergist.", 'https://source.unsplash.com/80x60/?shots');
+                document.getElementById('heading').style.display = 'block'; // Show the heading
+            }
+        });
+
+        function appendRecommendation(row, recommendation, imageUrl) {
+            const col = document.createElement('div');
+            col.classList.add('col-md-6');
+
+            const recommendationDiv = document.createElement('div');
+            recommendationDiv.classList.add('recommendation');
+
+            const image = document.createElement('img');
+            image.src = imageUrl;
+            image.alt = recommendation; // Add alt text for accessibility
+
+            const text = document.createElement('p');
+            text.textContent = recommendation;
+
+            recommendationDiv.appendChild(image);
+            recommendationDiv.appendChild(text);
+
+            col.appendChild(recommendationDiv);
+            row.appendChild(col);
+        }
+    </script>
+
+    <!-- Bootstrap JS, jQuery, and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

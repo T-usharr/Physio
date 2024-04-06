@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hypertension Assessment</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Custom CSS for styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .navbar {
+            background-color: #0a4275;
+            color: #fff;
+        }
+
+        .navbar-brand {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .navbar-nav .nav-link {
+            color: #fff;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #ccc;
+        }
+
+        /* Custom CSS for card layout */
+        .recommendation {
+            margin-bottom: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .recommendation img {
+            width: 80px;
+            height: 60px;
+            object-fit: cover; /* Ensure the image covers the entire area */
+        }
+
+        .recommendation p {
+            padding: 15px;
+            margin: 0;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg mb-5">
+        <div class="container">
+            <a class="navbar-brand" href="#">Physio Healthcare App</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="btn btn-primary ml-auto" href="/Non_critical_section.html">Go Back</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Hypertension Assessment</h1>
+        <form id="hypertensionForm">
+            <div class="form-group">
+                <label>1. Have you been diagnosed with hypertension (high blood pressure) in the past?</label><br>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="hypertensionDiagnosedYes" name="hypertensionDiagnosed" value="1">
+                    <label class="form-check-label" for="hypertensionDiagnosedYes">Yes</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="hypertensionDiagnosedNo" name="hypertensionDiagnosed" value="0" checked>
+                    <label class="form-check-label" for="hypertensionDiagnosedNo">No</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>2. Do you have any other cardiovascular conditions?</label><br>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="otherCardioConditionsYes" name="otherCardioConditions" value="1">
+                    <label class="form-check-label" for="otherCardioConditionsYes">Yes</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="otherCardioConditionsNo" name="otherCardioConditions" value="0" checked>
+                    <label class="form-check-label" for="otherCardioConditionsNo">No</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>3. Do you currently have any of the following symptoms? (Check all that apply)</label><br>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="headaches" value="1">
+                    <label class="form-check-label" for="headaches">Headaches (especially in the morning)</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="dizziness" value="1">
+                    <label class="form-check-label" for="dizziness">Dizziness or lightheadedness</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="visionIssues" value="1">
+                    <label class="form-check-label" for="visionIssues">Blurred or double vision</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="nosebleeds" value="1">
+                    <label class="form-check-label" for="nosebleeds">Nosebleeds</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="chestPain" value="1">
+                    <label class="form-check-label" for="chestPain">Chest pain or discomfort</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="shortnessOfBreath" value="1">
+                    <label class="form-check-label" for="shortnessOfBreath">Shortness of breath</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>4. Do you have any of the following risk factors for hypertension? (Check all that apply)</label><br>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="familyHistory" value="1">
+                    <label class="form-check-label" for="familyHistory">Family history of hypertension</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="overweight" value="0.25">
+                    <label class="form-check-label" for="overweight">Overweight or obesity</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="sedentaryLifestyle" value="0.75">
+                    <label class="form-check-label" for="sedentaryLifestyle">Sedentary lifestyle (lack of physical activity)</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="excessiveAlcohol" value="0.5">
+                    <label class="form-check-label" for="excessiveAlcohol">Excessive alcohol consumption</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>5. Do you smoke tobacco products?</label><br>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="smokingYes" name="smoking" value="1">
+                    <label class="form-check-label" for="smokingYes">Yes</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="smokingNo" name="smoking" value="0" checked>
+                    <label class="form-check-label" for="smokingNo">No</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>6. Do you consume alcohol?</label><br>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="alcoholYes" name="alcohol" value="1">
+                    <label class="form-check-label" for="alcoholYes">Yes</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="alcoholNo" name="alcohol" value="0" checked>
+                    <label class="form-check-label" for="alcoholNo">No</label>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <div id="recommendations">
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('hypertensionForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            let totalValue = 0;
+
+            // Calculate total value
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+            checkboxes.forEach(function (checkbox) {
+                totalValue += parseInt(checkbox.value);
+            });
+
+            const radioValues = document.querySelectorAll('input[type="radio"]:checked');
+            radioValues.forEach(function (radio) {
+                totalValue += parseInt(radio.value);
+            });
+
+            // Display general recommendations based on total value
+            const recommendationsDiv = document.getElementById('recommendations');
+            recommendationsDiv.style.display = 'block';
+            recommendationsDiv.innerHTML = '<h3>General Recommendations:</h3>';
+            const row = document.createElement('div');
+            row.classList.add('row');
+            recommendationsDiv.appendChild(row);
+
+            if (totalValue < 4) {
+                appendRecommendation(row, "Adopt a healthy lifestyle by eating a balanced diet low in sodium and saturated fats, and high in fruits, vegetables, and whole grains.", 'https://source.unsplash.com/80x60/?diet');
+                appendRecommendation(row, "Engage in regular physical activity, such as walking, swimming, or cycling, for at least 30 minutes most days of the week.", 'https://source.unsplash.com/80x60/?exercise');
+                appendRecommendation(row, "Maintain a healthy weight and limit alcohol consumption.", 'https://source.unsplash.com/80x60/?weight');
+                appendRecommendation(row, "Monitor blood pressure regularly at home and keep track of readings.", 'https://source.unsplash.com/80x60/?monitoring');
+                appendRecommendation(row, "Take prescribed medications as directed by a healthcare provider to lower blood pressure if necessary.", 'https://source.unsplash.com/80x60/?medication');
+            } 
+            else if(totalValue>=4 && totalValue<=6){
+              appendRecommendation(row, "Mild symptoms , medical attentionmaybe needed.", 'https://source.unsplash.com/80x60/?medical');
+
+              appendRecommendation(row, "Adopt a healthy lifestyle by eating a balanced diet low in sodium and saturated fats, and high in fruits, vegetables, and whole grains.", 'https://source.unsplash.com/80x60/?diet');
+                appendRecommendation(row, "Engage in regular physical activity, such as walking, swimming, or cycling, for at least 30 minutes most days of the week.", 'https://source.unsplash.com/80x60/?exercise');
+                appendRecommendation(row, "Maintain a healthy weight and limit alcohol consumption.", 'https://source.unsplash.com/80x60/?weight');
+                appendRecommendation(row, "Monitor blood pressure regularly at home and keep track of readings.", 'https://source.unsplash.com/80x60/?monitoring');
+                appendRecommendation(row, "Take prescribed medications as directed by a healthcare provider to lower blood pressure if necessary.", 'https://source.unsplash.com/80x60/?medication');
+            } 
+            else {
+                appendRecommendation(row, "If symptoms persist or worsen, seek medical attention.", 'https://source.unsplash.com/80x60/?medical');
+                appendRecommendation(row, "Adopt a healthy lifestyle by eating a balanced diet low in sodium and saturated fats, and high in fruits, vegetables, and whole grains.", 'https://source.unsplash.com/80x60/?diet');
+                appendRecommendation(row, "Engage in regular physical activity, such as walking, swimming, or cycling, for at least 30 minutes most days of the week.", 'https://source.unsplash.com/80x60/?exercise');
+                appendRecommendation(row, "Maintain a healthy weight and limit alcohol consumption.", 'https://source.unsplash.com/80x60/?weight');
+                appendRecommendation(row, "Monitor blood pressure regularly at home and keep track of readings.", 'https://source.unsplash.com/80x60/?monitoring');
+                appendRecommendation(row, "Take prescribed medications as directed by a healthcare provider to lower blood pressure if necessary.", 'https://source.unsplash.com/80x60/?medication');
+                document.getElementById('heading').style.display = 'block'; // Show the heading
+
+              }
+        });
+
+        function appendRecommendation(row, recommendation, imageUrl) {
+            const col = document.createElement('div');
+            col.classList.add('col-md-6');
+
+            const recommendationDiv = document.createElement('div');
+            recommendationDiv.classList.add('recommendation');
+
+            const image = document.createElement('img');
+            image.src = imageUrl;
+            image.alt = recommendation; // Add alt text for accessibility
+
+            const text = document.createElement('p');
+            text.textContent = recommendation;
+
+            recommendationDiv.appendChild(image);
+            recommendationDiv.appendChild(text);
+
+            col.appendChild(recommendationDiv);
+            row.appendChild(col);
+        }
+    </script>
+
+    <!-- Bootstrap JS, jQuery, and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

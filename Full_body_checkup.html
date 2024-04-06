@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI-driven Body Checkup</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  <style>
+    body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+    .container {
+      /* max-width: 800px; */
+      margin: 50px auto;
+      padding: 30px;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
+      box-shadow: 0px 0px 29px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: bold;
+      color: #333;
+    }
+
+    input[type="text"],
+    select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      transition: border-color 0.3s ease;
+    }
+
+    input[type="text"]:focus,
+    select:focus {
+      outline: none;
+      border-color: #6c5ce7;
+    }
+
+    button[type="submit"] {
+      background-color: #6c5ce7;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 12px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #4834d4;
+    }
+
+    .result-container {
+      margin-top: 30px;
+      padding: 20px;
+      border-radius: 5px;
+      background-color: rgba(255, 255, 255, 0.9);
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+      display: none;
+    }
+
+    .result-text {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #333;
+    }
+    .btn-primary {
+            background-color: #0a4275;
+            border: none;
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #0d6efd;
+        }
+
+        .navbar {
+            background-color: #0a4275;
+            color: #fff;
+        }
+
+        .navbar-brand {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .navbar-nav .nav-link {
+            color: #fff;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #ccc;
+        }
+   
+  </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#">Physio Healthcare App</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="btn btn-primary ml-auto" href="home.html">Go Back</a>
+        </div>
+    </nav>
+  <div class="container">
+    <h1 class="mb-4 text-center" style="color:black">Physio Body Checkup</h1>
+    <form id="questionnaireForm">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="question1">Do you smoke?</label>
+            <select class="form-control" id="question1" required>
+              <option value="">Select</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="question3">How often do you exercise?</label>
+            <select class="form-control" id="question3" required>
+              <option value="">Select</option>
+              <option value="Rarely">Rarely</option>
+              <option value="Sometimes">Sometimes</option>
+              <option value="Regularly">Regularly</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="question5">Do you have a family history of any chronic diseases?</label>
+            <input type="text" class="form-control" id="question5" placeholder="Enter details">
+          </div>
+          <div class="form-group">
+            <label for="question7">How often do you consume processed foods?</label>
+            <select class="form-control" id="question7" required>
+              <option value="">Select</option>
+              <option value="Rarely">Rarely</option>
+              <option value="Sometimes">Sometimes</option>
+              <option value="Regularly">Regularly</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="question9">Do you drink enough water daily?</label>
+            <select class="form-control" id="question9" required>
+              <option value="">Select</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="question11">How often do you visit your doctor for checkups?</label>
+            <select class="form-control" id="question11" required>
+              <option value="">Select</option>
+              <option value="Rarely">Rarely</option>
+              <option value="Sometimes">Sometimes</option>
+              <option value="Regularly">Regularly</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="question13">How often do you experience headaches?</label>
+            <select class="form-control" id="question13" required>
+              <option value="">Select</option>
+              <option value="Rarely">Rarely</option>
+              <option value="Sometimes">Sometimes</option>
+              <option value="Regularly">Regularly</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="question15">Do you have any skin conditions?</label>
+            <select class="form-control" id="question15" required>
+              <option value="">Select</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="question17">How often do you experience joint pain?</label>
+            <select class="form-control" id="question17" required>
+              <option value="">Select</option>
+              <option value="Rarely">Rarely</option>
+              <option value="Sometimes">Sometimes</option>
+              <option value="Regularly">Regularly</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="question19">Do you wear sunscreen regularly?</label>
+            <select class="form-control" id="question19" required>
+              <option value="">Select</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="question2">Do you consume alcohol?</label>
+            <select class="form-control" id="question2" required>
+              <option value="">Select</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="question4">How many hours of sleep do you get per night?</label>
+            <input type="number" class="form-control" id="question4" placeholder="Enter hours" required>
+          </div>
+          <div class="form-group">
+            <label for="question6">How often do you have fruits and vegetables?</label>
+            <select class="form-control" id="question6" required>
+              <option value="">Select</option>
+              <option value="Rarely">Rarely</option>
+              <option value="Sometimes">Sometimes</option>
+              <option value="Regularly">Regularly</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="question8">Do you often feel stressed?</label>
+            <select class="form-control" id="question8" required>
+              <option value="">Select</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="question10">Do you practice relaxation techniques?</label>
+            <select class="form-control" id="question10" required>
+              <option value="">Select</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="question12">How often do you floss your teeth?</label>
+            <select class="form-control" id="question12" required>
+              <option value="">Select</option>
+              <option value="Rarely">Rarely</option>
+              <option value="Sometimes">Sometimes</option>
+              <option value="Regularly">Regularly</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="question14">Do you have any allergies?</label>
+            <select class="form-control" id="question14" required>
+              <option value="">Select</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="question16">How often do you experience digestive issues?</label>
+            <select class="form-control" id="question16" required>
+              <option value="">Select</option>
+              <option value="Rarely">Rarely</option>
+              <option value="Sometimes">Sometimes</option>
+              <option value="Regularly">Regularly</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="question18">Do you take vitamins or supplements?</label>
+            <select class="form-control" id="question18" required>
+              <option value="">Select</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="question20">Do you engage in regular physical activity?</label>
+            <select class="form-control" id="question20" required>
+              <option value="">Select</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">Submit</button>
+    </form>
+    <div id="result" class="result-container mt-5" style="display: none;">
+      <h2 class="mb-3">Body Profiling Results</h2>
+      <div class="result-text"></div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS and jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#questionnaireForm').submit(function(event) {
+        event.preventDefault();
+        var smoking = $('#question1').val();
+        var alcohol = $('#question2').val();
+        var exercise = $('#question3').val();
+        var sleepHours = parseInt($('#question4').val());
+        var familyHistory = $('#question5').val();
+        var fruitsVegetables = $('#question6').val();
+        var processedFoods = $('#question7').val();
+        var waterIntake = $('#question9').val();
+        var doctorVisits = $('#question11').val();
+        var headaches = $('#question13').val();
+        var skinConditions = $('#question15').val();
+        var jointPain = $('#question17').val();
+        var sunscreen = $('#question19').val();
+        
+        var profile = [];
+        if (smoking === 'Yes') {
+          profile.push("You may be prone to lung diseases.");
+        }
+        if (alcohol === 'Yes') {
+          profile.push("You may be prone to liver diseases.");
+        }
+        if (exercise === 'Rarely') {
+          profile.push("You may be prone to cardiovascular diseases due to lack of exercise.");
+        }
+        if (sleepHours < 6) {
+          profile.push("Inadequate sleep may lead to various health issues.");
+        }
+        if (familyHistory !== '') {
+          profile.push("You should be cautious due to family history of chronic diseases.");
+        }
+        if (fruitsVegetables === 'Rarely') {
+          profile.push("Inadequate intake of fruits and vegetables may lead to nutritional deficiencies.");
+        }
+        if (processedFoods === 'Regularly') {
+          profile.push("Regular consumption of processed foods can increase the risk of obesity and other health issues.");
+        }
+        if (waterIntake === 'No') {
+          profile.push("Drinking enough water is crucial for maintaining overall health.");
+        }
+        if (doctorVisits === 'Rarely') {
+          profile.push("Regular checkups are important for early detection of health problems.");
+        }
+        if (headaches === 'Regularly') {
+          profile.push("Frequent headaches may indicate underlying health issues.");
+        }
+        if (skinConditions === 'Yes') {
+          profile.push("You may need to take extra care of your skin health.");
+        }
+        if (jointPain === 'Regularly') {
+          profile.push("Persistent joint pain may be a sign of arthritis or other joint disorders.");
+        }
+        if (sunscreen === 'No') {
+          profile.push("Regular use of sunscreen is essential to protect your skin from harmful UV rays.");
+        }
+
+        var resultHtml = '<div class="result-text">';
+        if (profile.length === 0) {
+          resultHtml += "Congratulations! You seem to have a healthy lifestyle.";
+        } else {
+          resultHtml += "<strong>Based on your answers, you may be prone to:</strong><br>";
+          resultHtml += profile.join("<br>");
+        }
+        resultHtml += '</div>';
+        $('#result').html(resultHtml).fadeIn();
+      });
+    });
+  </script>
+</body>
+</html>
